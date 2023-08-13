@@ -14,7 +14,7 @@ client = Client(twilio_account_sid, twilio_auth_token)
 openai.api_key = "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"
 
 # Load your marketing data
-data = pd.read_csv("C:/Users/HP/Downloads/marketing_dataset.csv")
+data = pd.read_csv("marketing_dataset.csv")
 data.drop(columns='Unnamed: 0', inplace=True)
 data.Date = pd.to_datetime(data.Date)
 
