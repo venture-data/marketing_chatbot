@@ -6,14 +6,6 @@ from datetime import datetime, timedelta
 from twilio.twiml.messaging_response import MessagingResponse
 
 
-# Initialize the Twilio client with your Twilio credentials
-twilio_account_sid = "ACa3ce04ad51439fbcda4911c9dedea089"
-twilio_auth_token = "eaa83154258279d793f99f149107145f"
-twilio_phone_number = "+18159914027"
-client = Client(twilio_account_sid, twilio_auth_token)
-
-# Set your OpenAI API key
-openai.api_key = "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"
 
 # Load your marketing data
 data = pd.read_csv("marketing_dataset.csv")
@@ -233,12 +225,12 @@ def main():
     send_whatsapp_message(bot_response)
 
 def send_whatsapp_message(message):
-    target_phone_number = "+923164735033"
+    target_phone_number = "whatsapp:+923735033"
     
     client.messages.create(
         body=message,
         from_='whatsapp:+14155238886',
-        to='whatsapp:+923164735033'
+        to=target_phone_number
     )
 
 if __name__ == "__main__":
