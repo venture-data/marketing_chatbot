@@ -3,6 +3,8 @@ import streamlit as st
 import openai
 import pandas as pd
 from datetime import datetime, timedelta
+from twilio.twiml.messaging_response import MessagingResponse
+
 
 # Initialize the Twilio client with your Twilio credentials
 twilio_account_sid = "ACa3ce04ad51439fbcda4911c9dedea089"
@@ -187,6 +189,21 @@ def chat_with_bot(user_input):
     
     return bot_response
 
+# Handle incoming WhatsApp messages
+@st.cache(suppress_st_warning=True)
+def handle_incoming_whatsapp_message(message_text):
+    # Process the incoming message and generate a response
+    bot_response = chat_with_bot(message_text)
+    return bot_response
+
+# Streamlit route for receiving incoming WhatsApp messages
+@st.cache(suppress_st_warning=True)
+def incoming_whatsapp():
+    response = MessagingResponse()
+    incoming_message = st.request.form.get("Body")
+    bot_response = handle_incoming_whatsapp_message(incoming_message)
+    response.message(bot_response)
+    return str(response)
 def main():
     st.title("Elisa: Marketing Data Chatbot")
     
