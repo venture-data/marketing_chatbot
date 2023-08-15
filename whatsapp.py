@@ -237,7 +237,7 @@ def send_whatsapp_message(message):
     
     client.messages.create(
         body=message,
-        from_='whatsapp:+14155238886',
+        from_=twilio_phone_number,
         to=target_phone_number
     )
 
