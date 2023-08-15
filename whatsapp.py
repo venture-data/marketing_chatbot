@@ -8,7 +8,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 # Initialize the Twilio client with your Twilio credentials
 twilio_account_sid = "ACa3ce04ad51439fbcda4911c9dedea089"
 twilio_auth_token = "eaa83154258279d793f99f149107145f"
-twilio_phone_number = "whatsapp:+18159914027"
+twilio_phone_number = "whatsapp:+14155238886"
 client = Client(twilio_account_sid, twilio_auth_token)
 
 # Set your OpenAI API key
