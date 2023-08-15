@@ -233,7 +233,7 @@ def main():
     send_whatsapp_message(bot_response)
 
 def send_whatsapp_message(message):
-    target_phone_number = "whatsapp:+923735033"
+    target_phone_number = "whatsapp:+923164735033"
     
     client.messages.create(
         body=message,
