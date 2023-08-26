@@ -3,3 +3,5 @@ streamlit
 openai
 python-dotenv
 flask
+fastapi 
+uvicorn
