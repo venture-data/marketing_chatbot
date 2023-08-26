@@ -188,6 +188,44 @@ def chat_with_bot(user_input):
     
     return bot_response
 
+
+
+"""
+This falsk code started
+"""
+
+# Create a Flask app to handle incoming messages from Twilio
+app = Flask(__name__)
+
+@app.route('/twilio-webhook', methods=['POST'])
+def twilio_webhook():
+    incoming_message = request.form['Body']
+    sender_phone_number = request.form['From']
+
+    response = process_incoming_message(incoming_message)
+
+    send_whatsapp_message(response, sender_phone_number)
+
+    return "Message received and processed."
+
+def process_incoming_message(incoming_message):
+    # Process the incoming message and generate a response
+    response = chat_with_bot(incoming_message)
+    return response
+
+def send_whatsapp_message(message, target_phone_number):
+    client.messages.create(
+        body=message,
+        from_=twilio_phone_number,
+        to=target_phone_number
+    )
+
+
+
+"""
+This is flask code ended
+"""
+
 def main():
     st.title("Elisa: Marketing Data Chatbot")
     
