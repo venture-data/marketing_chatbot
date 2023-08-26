@@ -5,7 +5,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 
-from flask import Flask, request
+from fastapi import FastAPI, Request
 from twilio.twiml.messaging_response import MessagingResponse
 
 
@@ -199,13 +199,11 @@ def chat_with_bot(user_input):
 This falsk code started
 """
 
-# Create a Flask app to handle incoming messages from Twilio
-app = Flask(__name__)
-
-@app.route('/twilio-webhook', methods=['POST'])
-def twilio_webhook():
-    incoming_message = request.form['Body']
-    sender_phone_number = request.form['From']
+@app.post("/twilio-webhook")
+async def twilio_webhook(request: Request):
+    form = await request.form()
+    incoming_message = form['Body']
+    sender_phone_number = form['From']
 
     response = process_incoming_message(incoming_message)
 
