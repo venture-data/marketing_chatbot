@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 # Initialize the Twilio client with your Twilio credentials
 twilio_account_sid = "ACa3ce04ad51439fbcda4911c9dedea089"
-twilio_auth_token = "413857f67809c5894f7bfe9b473a92d2"
+twilio_auth_token = "f0a603f56b9d01e1d53ca8351603062c"
 twilio_phone_number = "whatsapp:+14155238886"
 client = Client(twilio_account_sid, twilio_auth_token)
 
