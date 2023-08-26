@@ -1,0 +1,2 @@
+# Exclude credentials file
+credentials.env
