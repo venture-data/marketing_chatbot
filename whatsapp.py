@@ -4,6 +4,11 @@ import openai
 import pandas as pd
 from datetime import datetime, timedelta
 
+
+from flask import Flask, request
+from twilio.twiml.messaging_response import MessagingResponse
+
+
 # Initialize the Twilio client with your Twilio credentials
 twilio_account_sid = "ACa3ce04ad51439fbcda4911c9dedea089"
 twilio_auth_token = "f0a603f56b9d01e1d53ca8351603062c"
